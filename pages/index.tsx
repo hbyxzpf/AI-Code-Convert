@@ -127,7 +127,23 @@ export default function Home() {
 		  <div className="mt-5 text-xl text-center leading-2">Generate <span className="text-blue-500 font-bold">Code</span> or <span className="text-blue-500 font-bold">Natural Language</span> To
 		  <br /> Programming Language <span className="text-blue-500 font-bold">Code</span> of Selected</div>
         </div>
+        <div className="mt-5 text-center text-sm">
+          {loading
+              ? '...'// Generating
+              : hasTranslated
+                  ? 'Output copied to clipboard!'
+                  : 'Enter some code and click "Generate"'}
+        </div>
 
+        <div className="mt-5 flex items-center space-x-2">
+          <button
+              className="w-[140px] cursor-pointer rounded-md bg-blue-500 px-4 py-2 font-bold hover:bg-blue-600 active:bg-blue-700"
+              onClick={() => handleTranslate()}
+              disabled={loading}
+          >
+            {loading ? 'Generating...' : 'Generate'}
+          </button>
+        </div>
         <div className="mt-6 flex w-full max-w-[1200px] flex-col justify-between sm:flex-row sm:space-x-4">
           <div className="h-100 flex flex-col justify-center space-y-2 sm:w-2/4">
             <div className="text-center text-xl font-bold">From</div>
@@ -180,27 +196,6 @@ export default function Home() {
             )}
           </div>
         </div>
-
-		<div className="mt-5 text-center text-sm">
-		  {loading
-		    ? '...'// Generating
-		    : hasTranslated
-		    ? 'Output copied to clipboard!'
-		    : 'Enter some code and click "Generate"'}
-		</div>
-
-		<div className="mt-5 flex items-center space-x-2">
-		  <button
-		    className="w-[140px] cursor-pointer rounded-md bg-blue-500 px-4 py-2 font-bold hover:bg-blue-600 active:bg-blue-700"
-		    onClick={() => handleTranslate()}
-		    disabled={loading}
-		  >
-		    {loading ? 'Generating...' : 'Generate'}
-		  </button>
-		</div>
-		{/*<button className="mt-2 cursor-pointer rounded-md bg-blue-800 px-4 py-2 hover:bg-blue-600 active:bg-blue-700">*/}
-		{/*	<a href="https://base64.kr/en">Visit Base64.kr</a>*/}
-		{/*</button>*/}
 	  </div>
     </>
   );
