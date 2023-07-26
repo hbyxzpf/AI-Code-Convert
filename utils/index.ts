@@ -79,15 +79,15 @@ export const OpenAIStream = async (
   const prompt = createPrompt(inputLanguage, outputLanguage, inputCode);
 
   const system = { role: 'system', content: prompt };
-	
-  const key = "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";
 
-  const model = "gpt-3.5-turbo-16k";
+  const key = process.env.OPENAI_API_KEY;
+  const model = process.env.MODEL ||  "gpt-3.5-turbo-16k";
+  const host = process.env.PROXY_API_HOST || "https://api.openai.com"
 
-  const res = await fetch(`https://api.openai.com/v1/chat/completions`, {
+  const res = await fetch(host+`/v1/chat/completions`, {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${key || process.env.OPENAI_API_KEY}`,
+      Authorization: `Bearer ${key}`,
     },
     method: 'POST',
     body: JSON.stringify({
