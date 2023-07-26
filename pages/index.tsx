@@ -118,7 +118,7 @@ export default function Home() {
 
 	  <div className="h-100 flex justify-start items-center pl-10 pt-5 bg-[#0E1117]">
 	  	<img className="w-50 h-50" alt="AICodeConverter" src="code.png" />
-	  	<h1 className="text-white font-bold text-2xl"><span className="text-blue-500 ml-2">AI</span>CodeConvert.com</h1>
+	  	<h1 className="text-white font-bold text-2xl"><span className="text-blue-500 ml-2">AI</span>CodeConvert</h1>
 	  </div>
 
       <div className="flex h-full min-h-screen flex-col items-center bg-[#0E1117] px-4 pb-20 text-neutral-200 sm:px-10">
